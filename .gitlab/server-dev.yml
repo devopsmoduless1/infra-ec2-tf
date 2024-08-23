@@ -1,0 +1,47 @@
+.dev_vars:
+  variables:
+    TF_VAR_region: "eu-west-2"
+    TF_VAR_imageid: "ami-07c1b39b7b3d2525d"
+    TF_VAR_instancetype: "t2.micro"
+    TF_VAR_instancecount: 1
+    TF_VAR_subnetid: "subnet-07e9885bad74a5f74"
+    TF_VAR_vpc_id: "vpc-0f40a70587da250cd"
+    TF_ROOT: "ec2"
+
+plan infra dev:
+ stage: plan
+ variables:
+     ENV: "dev"
+ extends:
+   - .dev_vars
+   - .plan
+
+apply infra dev:
+ stage: apply
+ variables:
+     ENV: "dev"
+ extends:
+   - .dev_vars
+   - .apply
+ needs: [plan infra dev]
+ when: manual
+
+plan destroy infra dev:
+ stage: plan-destroy
+ variables:
+     ENV: "dev"
+ extends:
+   - .dev_vars
+   - .plan_destroy
+ when: manual
+
+
+destroy infra dev:
+ stage: destroy
+ variables:
+     ENV: "dev"
+ extends:
+   - .dev_vars
+   - .destroy
+ needs: [plan destroy infra dev]
+ when: manual
