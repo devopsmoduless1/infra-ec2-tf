@@ -6,5 +6,4 @@ stages:
 
 include:
  - local: /.gitlab/terraform.yml
- - local: /.gitlab/rules.yml
  - local: /.gitlab/server-dev.yml
