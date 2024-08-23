@@ -4,5 +4,5 @@ if [[ -z "$ENV" ]]; then
 fi
 
 terraform init \
-    -backend-config="bucket=tfvino" \
+    -backend-config="bucket=demobucket" \
     -backend-config="key=SERVER/${ENV}"
