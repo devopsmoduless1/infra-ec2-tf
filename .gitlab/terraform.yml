@@ -1,10 +1,12 @@
+# Replace ci-baseimage with your customized image or ubuntu
 .terraform_image:
     image:
        name: registry.gitlab.com/vino6441212/devops:ci-baseimage
 
+# Replace gitlab-runner-tag with your gitlab runner tag
 .default_tags:
     tags:
-     - gitlab-k8-kkm
+     - gitlab-runner-tag
 
 
 .plan: &plan
