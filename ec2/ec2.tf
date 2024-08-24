@@ -38,7 +38,7 @@ resource "aws_instance" "aws_instance_devops" {
   subnet_id = var.subnetid
 
   #Keyname
-  key_name = "vino-k8-kind"
+  key_name = "ssh keyname"
 
   # Our Security group to allow HTTP access
   vpc_security_group_ids = [aws_security_group.aws_sg_devops.id]
