@@ -1,3 +1,6 @@
+
+# Terraform AWS S3 Backend configuration for terraform state file
+
 terraform {
   backend "s3" {
     bucket = "tfvino"
